@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tugas Besar Kriptografi</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    form {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #666;
+    }
+    input[type="text"], select {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+    h2 {
+      margin-top: 20px;
+      color: #333;
+    }
+    p {
+      margin: 0;
+      font-size: 18px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 style="color: #080808;">Enkripsi Dekripsi Block Chiper</h1>
+    <form action="/encrypt" method="post">
+      <label for="plaintext">Input Pesan:</label>
+      <input type="text" id="plaintext" name="plaintext" required>
+      <label for="key">Kunci Enkripsi:</label>
+      <input type="text" id="key" name="key" required>
+      <label for="mode">Mode Enkripsi:</label>
+      <select id="mode" name="mode">
+        <option value="ECB">ECB</option>
+        <option value="CFB">CFB</option>
+        <option value="CBC" selected>CBC</option>
+      </select>
+      <input type="submit" value="Enkripsi" style="background-color: #4CAF50;">
+    </form>
+    <form action="/decrypt" method="post">
+      <label for="ciphertext">Input Pesan:</label>
+      <input type="text" id="ciphertext" name="ciphertext" required>
+      <label for="key">Kunci Dekripsi:</label>
+      <input type="text" id="key" name="key" required>
+      <label for="mode"> Mode Dekripsi:</label>
+      <select id="mode" name="mode">
+        <option value="ECB">ECB</option>
+        <option value="CFB">CFB</option>
+        <option value="CBC" selected>CBC</option>
+      </select>
+      <input type="submit" value="Dekripsi" style="background-color: #f44336;">
+    </form>
+    {% if result %}
+    <h2>Hasil {{ operation }}: </h2>
+    <p>{{ result }}</p>
+    {% endif %}
+  </div>
+</body>
+</html>
